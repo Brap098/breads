@@ -10,7 +10,11 @@ const app = express()
 app.set('views', __dirname + '/views')
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
-
+app.use(express.static('public'))
+// 404 Page
+app.get('*', (req, res) => {
+  res.send('404')
+})
 
 // ROUTES
 app.get('/', (req, res) => {
