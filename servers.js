@@ -1,6 +1,6 @@
 // DEPENDENCIES
 const express = require('express')
-
+const breadsController = require('./controllers/breads_controller.js')
 // CONFIGURATION
 require('dotenv').config()
 const PORT = process.env.PORT
@@ -13,6 +13,9 @@ app.engine('jsx', require('express-react-views').createEngine())
 app.use(express.static('public'))
 app.use(express.urlencoded({extended: true}))
 
+// Breads
+app.use('/breads', breadsController)
+
 // ROUTES
 app.get('/', (req, res) => {
   res.send('Welcome to an Awesome App about Breads!')
@@ -21,12 +24,7 @@ app.get('/', (req, res) => {
 app.get('*', (req, res) => {
   res.send('404')
 })
-
-// Breads
-const breadsController = require('./controllers/breads_controller.js')
-app.use('/breads', breadsController)
   
-
 // LISTEN
 app.listen(PORT, () => {
   console.log('nomming at port', PORT);
