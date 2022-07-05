@@ -22,6 +22,7 @@ function Show ({bread}) {
       
       )
   }
-  
+  <a href={`/breads/${index}/edit`}><button>Edit</button></a>
+
 
 module.exports = Show
