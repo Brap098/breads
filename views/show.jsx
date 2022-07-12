@@ -20,9 +20,17 @@ function Show ({bread}) {
         <li><a href="/breads">Go home</a></li>
       </Default>
       
+
+      
       )
   }
-  <a href={`/breads/${index}/edit`}><button>Edit</button></a>
+  <a href={`/breads/${bread.id}/edit`}><button>Edit</button></a>
 
+  function Show ({bread, index}) {
+
+<form action={`/breads/${bread.id}?_method=DELETE`} method="POST">
+  <input type='submit' value="DELETE"/>
+</form>
+  }
 
 module.exports = Show
